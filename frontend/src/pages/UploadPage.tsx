@@ -18,7 +18,7 @@ const UploadPage: React.FC = () => {
 
     try {
       console.log(formData)
-      await axios.post('http://localhost:5050/api/upload', formData, {
+      await axios.post(`${import.meta.env.VITE_APP_SERVER}/api/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

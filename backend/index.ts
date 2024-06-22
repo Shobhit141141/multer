@@ -2,7 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import imageRouter from './routers/imageRouter';
-
+import dotenv from 'dotenv';
+dotenv.config();
 const app = express();
 const PORT = 5050;
 
@@ -10,7 +11,7 @@ const PORT = 5050;
 app.use(cors());
 app.use(express.static('public'))
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/imageUploadDB', {
+mongoose.connect(process.env.MONGO_URI, {
 
 })
   .then(() => console.log('Connected to MongoDB'))

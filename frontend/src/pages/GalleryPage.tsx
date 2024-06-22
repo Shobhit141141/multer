@@ -7,7 +7,7 @@ const GalleryPage: React.FC = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('http://localhost:5050/api/images');
+        const response = await axios.get(`${import.meta.env.VITE_APP_SERVER}/api/images`);
         setImageUrls(response.data);
         console.log(response)
       } catch (error) {
@@ -23,7 +23,7 @@ const GalleryPage: React.FC = () => {
       <h1>Image Gallery</h1>
       <div>
         {imageUrls.map((url, index) => (
-          <img key={index} src={`http://localhost:5050/${url}`} alt={`Uploaded ${index}`} width="200" />
+          <img key={index} src={`${import.meta.env.VITE_APP_SERVER}/${url}`} alt={`Uploaded ${index}`} width="200" />
         ))}
       </div>
     </div>
